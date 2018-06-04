@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
+      });
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <div class="navbar-fixed black">
+      <nav>
+        <div class="nav-wrapper red">
+          <a href="#!" class="brand-logo">Image Upload on amazon AWS</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="modal-trigger" href="#modal1">Upload a new picture</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <section>
+      <%- body %>
+    </section>
+
+
+    <!--  BELOW IS ONLY THE CODE FOR THE MODAL WINDOW TO APPEAR AS WELL AS THE FORM-->
+    <div id="modal1" class="modal">
+      <form enctype="multipart/form-data" action="/pictures" method="POST">
+        <div class="modal-content">
+          <h4>New Picture</h4>
+              <div class="input-field col s12">
+                <input id="title" type="text" class="validate" name="title">
+                <label for="title">Name  </label>
+              </div>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input required="required" type="file" name="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input required="required" class="file-path validate" type="text" >
+                </div>
+              </div>
+          </div>
+
+        <div class="modal-footer">
+          <button class="modal-close waves-effect waves-green btn-flat" name="button">Send</button>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
